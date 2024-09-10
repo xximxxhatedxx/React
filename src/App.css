@@ -1,0 +1,46 @@
+header{
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #f0f0f0;
+}
+
+header button{
+  appearance: none;
+  height: 100%;
+  width: 40%;
+  border: none;
+  font-size: 3vh;
+}
+
+header button:hover {
+  background-color: #dfdfdf;
+}
+
+.profileContainer {
+  padding: 20px;
+  max-height: 700px;
+}
+
+.app{
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+footer{
+  min-height: 50px;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+img {
+  max-height: 40%;
+}
+
+body { 
+  height: 100%;
+}
