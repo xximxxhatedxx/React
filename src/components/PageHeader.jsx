@@ -1,12 +1,19 @@
-import React from "react";
+import React from 'react';
+import LogInButton from './LogInButton';
+import LogOutButton from './LogOutButton';
 
-function PageHeader() {
+class Header extends React.Component {
+  render() {
     return (
       <header>
-        <button>button1</button>
-        <button>button2</button>
+        {this.props.isLoggedIn ? (
+          <LogOutButton onClick={this.props.onLogoutClick} />
+        ) : (
+          <LogInButton onClick={this.props.onLoginClick} />
+        )}
       </header>
-    )
+    );
   }
+}
 
-export default PageHeader;
+export default Header;
