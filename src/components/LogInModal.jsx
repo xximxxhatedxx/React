@@ -1,4 +1,3 @@
-// LoginModal.js
 import React from 'react';
 
 class LoginModal extends React.Component {
@@ -23,7 +22,6 @@ class LoginModal extends React.Component {
                     <button type="submit" className='LogInModalButton'>Увійти</button>
                 </form>
             </div>
-            
         </div>
     );
   }
