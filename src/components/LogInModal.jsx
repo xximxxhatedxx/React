@@ -1,15 +1,14 @@
-// LoginModal.js
 import React from 'react';
 
 class LoginModal extends React.Component {
-    handleSubmit = (event) => {
-        event.preventDefault();
-        this.props.onLogin();
-    };
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.onLogin();
+  };
 
-    render() {
-        if (!this.props.show) {
-        return null;
+  render() {
+    if (!this.props.show) {
+      return null;
     }
 
     return (

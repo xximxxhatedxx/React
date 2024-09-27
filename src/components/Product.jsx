@@ -5,11 +5,21 @@ class Product extends React.Component {
     this.props.onSelect(this.props.product.id);
   };
 
+  handleClickProduct = () => {
+    this.props.onOpen(this.props.product.id)
+  }
+
   render() {
     return (
-      <div>
+      <div className="productContainer">
+        <img className='productImage'
+            src={this.props.product.image}
+            alt={this.props.product.name}
+        />
+        <div className='productName' onClick={this.handleClickProduct}>{this.props.product.name}</div>
+        <div className='productPrice'>{this.props.product.price}</div>
         <input type="checkbox" onChange={this.handleCheckboxChange} />
-        <span>{this.props.product.name}</span>
+        
       </div>
     );
   }
