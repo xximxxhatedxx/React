@@ -33,34 +33,33 @@ class App extends React.Component {
 	};
   
 	handleProductSelect = (id) => {
-	  this.setState((prevState) => {
-		const isSelected = prevState.selectedProducts.includes(id);
-		const selectedProducts = isSelected
-		  ? prevState.selectedProducts.filter(productId => productId !== id)
-		  : [...prevState.selectedProducts, id];
+	  	this.setState((prevState) => {
+			const isSelected = prevState.selectedProducts.includes(id);
+			const selectedProducts = isSelected 
+				? prevState.selectedProducts.filter(productId => productId !== id)
+		  		: [...prevState.selectedProducts, id];
   
-		return { selectedProducts };
-	  });
+			return { selectedProducts };
+	  	});
 	};
   
 	handleLoginClick = () => {
-	  this.setState({ showLoginModal: true });
+	  	this.setState({ showLoginModal: true });
 	};
   
 	handleLogoutClick = () => {
-	  this.setState({ isLoggedIn: false });
+	  	this.setState({ isLoggedIn: false });
 	};
   
 	handleCloseModalLogIn = () => {
 	  this.setState({ showLoginModal: false });
-	};
 
 	handleCloseModalProductPage = () => {
 	  this.setState({ showProductPageModal: false });
 	};
   
 	handleLogin = () => {
-	  this.setState({ isLoggedIn: true, showLoginModal: false });
+	  	this.setState({ isLoggedIn: true, showLoginModal: false });
 	};
 
 	handleShowProductPageModal = (product) => {
