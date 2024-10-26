@@ -2,18 +2,16 @@ import React from 'react';
 import LogInButton from './LogInButton';
 import LogOutButton from './LogOutButton';
 
-class Header extends React.Component {
-  render() {
+const Header = ({isLoggedIn, onLogoutClick, onLoginClick}) => {
     return (
       <header>
-        {this.props.isLoggedIn ? (
-          <LogOutButton onClick={this.props.onLogoutClick} />
+        {isLoggedIn ? (
+          <LogOutButton onClick={onLogoutClick} />
         ) : (
-          <LogInButton onClick={this.props.onLoginClick} />
+          <LogInButton onClick={onLoginClick} />
         )}
       </header>
     );
-  }
 }
 
 export default Header;

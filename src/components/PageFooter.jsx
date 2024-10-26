@@ -1,11 +1,11 @@
 import React from "react";
 
-function PageFooter() {
+const PageFooter = () => {
     return (
       <footer>
         <p>©2024</p>
       </footer>
     )
-  }
+}
 
 export default PageFooter;

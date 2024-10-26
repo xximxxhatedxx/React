@@ -1,28 +1,26 @@
 import React from 'react';
 
-class Product extends React.Component {
-  handleCheckboxChange = () => {
-    this.props.onSelect(this.props.product.id);
+const Product = ({product, onSelect, onOpen}) => {
+  const handleCheckboxChange = () => {
+    onSelect(product.id);
   };
 
-  handleClickProduct = () => {
-    this.props.onOpen(this.props.product.id)
+  const handleClickProduct = () => {
+    onOpen(product.id)
   }
 
-  render() {
-    return (
-      <div className="productContainer">
-        <img className='productImage'
-            src={this.props.product.image}
-            alt={this.props.product.name}
-        />
-        <div className='productName' onClick={this.handleClickProduct}>{this.props.product.name}</div>
-        <div className='productPrice'>{this.props.product.price}</div>
-        <input type="checkbox" onChange={this.handleCheckboxChange} />
-        
-      </div>
-    );
-  }
+  return (
+    <div className="productContainer">
+      <img className='productImage'
+          src={product.image}
+          alt={product.name}
+      />
+      <div className='productName' onClick={handleClickProduct}>{product.name}</div>
+      <div className='productPrice'>{product.price}</div>
+      <input type="checkbox" onChange={handleCheckboxChange} />
+      
+    </div>
+  );
 }
 
 export default Product;

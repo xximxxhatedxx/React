@@ -1,6 +1,6 @@
 import React from "react";
 
-function ProfileDescription() {
+const ProfileDescription = () => {
     return (
         <div>
             <h1>User Name</h1>

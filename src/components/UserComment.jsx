@@ -1,14 +1,12 @@
 import React from 'react';
 
-class UserComment extends React.Component {
-  render() {
+const UserComment = ({text}) => {
     return (
       <li>
         <hr />
-        <div>{this.props.text}</div>
+        <div>{text}</div>
       </li>
     );
-  }
 }
 
 export default UserComment;

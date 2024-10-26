@@ -1,6 +1,6 @@
 import React from "react";
 
-function ProfilePicture() {
+const ProfilePicture = () => {
     return (
         <img
             src="https://imgur.com/GX3u2Qn.png"
