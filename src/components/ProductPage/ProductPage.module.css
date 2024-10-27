@@ -1,0 +1,68 @@
+.container {
+    max-height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    overflow: hidden auto;
+    box-sizing: border-box;
+}
+
+.productImage {
+    max-height: 200px;
+    border-radius: 8px;
+}
+
+.productPrice {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.commentsList {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.commentButton {
+    margin: 10px;
+    background-color: #dadada;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.commentButton:hover {
+    background-color: #45a049;
+}
+
+.commentInput {
+    min-height: 50px;
+    min-width: 90%;
+    resize: none;
+}
+
+.commentEnter {
+    opacity: 0;
+    transform: translateY(-15px);
+}
+
+.commentEnterActive {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 700ms, transform 700ms;
+}
+
+.commentExit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.commentExitActive {
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: opacity 700ms, transform 700ms;
+}

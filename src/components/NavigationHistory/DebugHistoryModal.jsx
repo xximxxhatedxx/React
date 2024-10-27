@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigationHistory } from './useNavigationHistory';
+import { CloseButton, Modal, ModalContainer, ModalContent } from './DebugHistoryModalStyled';
 
 const DebugHistoryModal = ({onClose, show}) => {
     const { history, clearHistory } = useNavigationHistory();
@@ -9,10 +10,10 @@ const DebugHistoryModal = ({onClose, show}) => {
     }
 
     return (
-        <div className="modal">
-            <div className="modal-container">
-                <button className="close" onClick={onClose}>×</button>
-                <div className='modal-content'>
+        <Modal>
+            <ModalContainer>
+                <CloseButton onClick={onClose}>×</CloseButton>
+                <ModalContent>
                     <h2>Navigation History</h2>
                     <ul>
                         {history.map((path, index) => (
@@ -20,9 +21,9 @@ const DebugHistoryModal = ({onClose, show}) => {
                         ))}
                     </ul>
                     <button onClick={clearHistory}>Clear History</button>
-                </div>
-            </div>
-        </div>
+                </ModalContent>
+            </ModalContainer>
+        </Modal>
         
     );
 };

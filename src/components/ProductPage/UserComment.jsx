@@ -2,10 +2,10 @@ import React from 'react';
 
 const UserComment = ({text}) => {
     return (
-      <li>
-        <hr />
+      <div>
         <div>{text}</div>
-      </li>
+        <hr />
+      </div>
     );
 }
 

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import UserComment from './UserComment';
 import { useParams } from 'react-router-dom';
-import { useProductContext } from './contexts/ProductContext';
+import { useProductContext } from '../contexts/ProductContext';
+import styles from './ProductPage.module.css'
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const ProductPage = () => {
     const { id } = useParams();
@@ -29,26 +31,33 @@ const ProductPage = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className='modal-content'>
+        <form onSubmit={handleSubmit} className={styles.container}>
             <img
-                className='productPageImage'
+                className={styles.productImage}
                 src={product.image}
                 alt={product.name}
             />
             <h2>{product.name}</h2>
-            <div className='productPagePrice'>
+            <div className={styles.productPrice}>
                 {product.price} UAH
             </div>
-            <div className='commentSection'>
+            <div className={styles.comments}>
                 <div>Comments</div>
                 {Array.isArray(product.comments) && product.comments.length === 0 ? (
                     <div>No comments here</div>
                 ) : (
-                    <ul type="none">
-                        {Array.isArray(product.comments) && product.comments.map((comment, id) => (
-                            <UserComment key={id} text={comment} />
+                    <TransitionGroup className={styles.commentsList}>
+                        {product.comments.map((comment, id) => (
+                            <CSSTransition key={id} timeout={300} classNames={{
+                                enter: styles.commentEnter,
+                                enterActive: styles.commentEnterActive,
+                                exit: styles.commentExit,
+                                exitActive: styles.commentExitActive
+                            }}>
+                                <UserComment text={comment} />
+                            </CSSTransition>
                         ))}
-                    </ul>
+                    </TransitionGroup>
                 )}
             </div>
             <textarea
@@ -56,8 +65,9 @@ const ProductPage = () => {
                 placeholder='Write your comment here'
                 onChange={handleChange}
                 value={value}
+                className={styles.commentInput}
             />
-            <button type="submit" className='ProductPageModalButton'>Send</button>
+            <button type="submit" className={styles.commentButton}>Send</button>
         </form>
     );
 };

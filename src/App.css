@@ -19,11 +19,6 @@ header button:hover {
   background-color: #dfdfdf;
 }
 
-.profileContainer {
-  padding: 20px;
-  max-height: 700px;
-}
-
 .app{
   height: 100vh;
   margin: 0;
@@ -41,77 +36,12 @@ body {
   height: 100%;
 }
 
-.modal {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  min-height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-container {
-  position: relative;
-  background-color: #fff;
-  padding: 30px 20px 20px;
-  margin: 40px 0px;
-  border: 1px solid #888;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  max-height: 90vh;
-  
-}
-
-.modal-content {
-  max-height: inherit;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  overflow: hidden auto;
-  box-sizing: border-box;
-}
-
-.modal-content::-webkit-scrollbar {
-  width: 3px;
-}
-  
-.modal-content::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
-  border-radius: 10px;
-}
-  
-.modal-content::-webkit-scrollbar-thumb {
-  background:black; 
-}
-  
-.modal-content::-webkit-scrollbar-thumb:hover {
-  background:rgb(54, 56, 58); 
-}
-
 .LogInModalButton {
   appearance: none;
   border: 1px black solid;
   height: 30px;
   margin: 0px 70px;
   width: 100px;
-}
-
-.close {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.close:hover {
-  color: red;
 }
 
 .productContainer {
@@ -142,10 +72,6 @@ body {
   object-fit: cover;
 }
 
-.productPageImage{
-  height: 200px;
-}
-
 .productName{
   text-align: center;
   cursor: pointer;
@@ -154,14 +80,4 @@ body {
 
 .productName:hover{
   color: #888;
-}
-
-.commentSection{
-  width: 500px;
-}
-
-textarea {
-  min-height: 50px;
-  min-width: 90%;
-  resize: none;
 }

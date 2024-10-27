@@ -1,19 +1,18 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import PageHeader from './components/PageHeader.jsx';
 import PageFooter from './components/PageFooter.jsx';
 import ProductList from './components/ProductList.jsx';
-import LoginModal from './components/LogInModal.jsx';
-import ProductPage from './components/ProductPage.jsx';
+import LoginModal from './components/LogIn/LogInModal.jsx';
+import ProductPage from './components/ProductPage/ProductPage.jsx';
 import { ProductProvider } from './components/contexts/ProductContext';
 import { AuthProvider } from './components/contexts/AuthContext.jsx';
-import DebugHistoryModal from './components/DebugHistoryModal.jsx';
+import DebugHistoryModal from './components/NavigationHistory/DebugHistoryModal.jsx';
 
 const App = () => {
     const [showLoginModal, setShowLoginModal] = useState(false);
 	const [showHistory, setShowHistory] = useState(false);
-    const exchangeRate = 45.79;
 
     const handleCloseModalLogIn = () => {
         setShowLoginModal(false);

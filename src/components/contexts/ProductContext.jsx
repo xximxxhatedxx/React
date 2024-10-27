@@ -33,7 +33,6 @@ export const ProductProvider = ({ children }) => {
                 return product;
             });
         });
-        alert(`Your comment: "${text}" added successfully!`);
     };
 
     return (
