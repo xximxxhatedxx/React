@@ -1,7 +1,10 @@
 import React from 'react';
 import Product from './Product';
+import { useProductContext } from './contexts/ProductContext';
 
-const ProductList = ({products, onSelectProduct, onOpen}) => {
+const ProductList = ({onSelectProduct}) => {
+  const { products } = useProductContext();
+
   return (
     <div className='productListContainer'>
       {products.map(product => (
@@ -9,7 +12,6 @@ const ProductList = ({products, onSelectProduct, onOpen}) => {
           key={product.id}
           product={product}
           onSelect={onSelectProduct}
-          onOpen={onOpen}
         />
       ))}
     </div>

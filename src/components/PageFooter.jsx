@@ -1,9 +1,9 @@
 import React from "react";
 
-const PageFooter = () => {
+const PageFooter = ({showHistoryClick}) => {
     return (
       <footer>
-        <p>©2024</p>
+        <p onClick={showHistoryClick}>©2024</p>
       </footer>
     )
 }

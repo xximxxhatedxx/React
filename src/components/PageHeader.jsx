@@ -1,17 +1,21 @@
 import React from 'react';
-import LogInButton from './LogInButton';
-import LogOutButton from './LogOutButton';
+import { useAuthContext } from './contexts/AuthContext';
+import { useNavigate} from 'react-router-dom';
 
-const Header = ({isLoggedIn, onLogoutClick, onLoginClick}) => {
+const PageHeader = ({ onLoginClick }) => {
+    const { isLoggedIn, logout } = useAuthContext();
+    const navigate = useNavigate();
+
     return (
-      <header>
-        {isLoggedIn ? (
-          <LogOutButton onClick={onLogoutClick} />
-        ) : (
-          <LogInButton onClick={onLoginClick} />
-        )}
-      </header>
+        <header>
+            <h1 onClick={() => navigate('/')}>My Shop</h1>
+            {isLoggedIn ? (
+                <button onClick={logout}>Logout</button>
+            ) : (
+                <button onClick={onLoginClick}>Login</button>
+            )}
+        </header>
     );
-}
+};
 
-export default Header;
+export default PageHeader;
