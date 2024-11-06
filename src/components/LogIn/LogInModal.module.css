@@ -18,6 +18,21 @@
   transition: opacity 400ms, transform 400ms;
 }
 
+.closeButton{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+  
+
+.closeButton:hover {
+  color: red;
+}
+
 .modal {
   position: fixed;
   z-index: 1;

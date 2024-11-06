@@ -30,7 +30,7 @@ const LoginModal = ({ onClose, show }) => {
         >
             <div className={styles.modal}>
                 <div className={styles.modalContainer}>
-                    <button className="close" onClick={onClose}>×</button>
+                    <button className={styles.closeButton} onClick={onClose}>×</button>
                     <form onSubmit={handleSubmit} className={styles.modalContent}>
                         <h1>Вхід</h1>
                         <input 
