@@ -1,22 +1,47 @@
-header{
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+.dark-theme {
+  --bg-color: #1e1e1e;
+  --text-color: #ffffff;
+}
+
+header {
   height: 100px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  background-color: #f0f0f0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-header button{
+header button {
   appearance: none;
   height: 100%;
-  width: 40%;
+  width: 20%;
   border: none;
   font-size: 3vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header button:hover {
   background-color: #dfdfdf;
+}
+
+header button {
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+
+.dark-theme header button:hover {
+  background-color: #333333;
 }
 
 .app{

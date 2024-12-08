@@ -1,57 +1,62 @@
 import React, { useState } from 'react';
 import { useAuthContext } from '../contexts/AuthContext';
-import { CSSTransition } from 'react-transition-group';
-import styles from './LogInModal.module.css'
+import { Modal, Input, Button } from 'antd';
 
 const LoginModal = ({ onClose, show }) => {
     const { login } = useAuthContext();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
 
-    const handleSubmit = (event) => {
+    const simulateLoginDelay = () => {
+        return new Promise((resolve) => setTimeout(resolve, 1000));
+    };
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        login(username, password);
-        setUsername("");
-        setPassword("");
+        setLoading(true);
+        await simulateLoginDelay();
+        await login(username, password);
+        setUsername('');
+        setPassword('');
+        setLoading(false);
         onClose();
     };
 
     return (
-        <CSSTransition
-            in={show}
-            timeout={300}
-            classNames={{
-                enter: styles.modalEnter,
-                enterActive: styles.modalEnterActive,
-                exit: styles.modalExit,
-                exitActive: styles.modalExitActive,
-            }}
-            unmountOnExit
+        <Modal
+            title="Вхід"
+            open={show}
+            onCancel={onClose}
+            footer={null}
+            destroyOnClose={true}
         >
-            <div className={styles.modal}>
-                <div className={styles.modalContainer}>
-                    <button className={styles.closeButton} onClick={onClose}>×</button>
-                    <form onSubmit={handleSubmit} className={styles.modalContent}>
-                        <h1>Вхід</h1>
-                        <input 
-                            type="text" 
-                            name="username" 
-                            placeholder='Логін'
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                        />
-                        <input 
-                            type="password" 
-                            name="password" 
-                            placeholder='Пароль'
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                        <button type="submit" className='LogInModalButton'>Увійти</button>
-                    </form>
-                </div>
-            </div>
-        </CSSTransition>
+            <form onSubmit={handleSubmit}>
+                <Input 
+                    type="text" 
+                    name="username" 
+                    placeholder="Логін"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    style={{ marginBottom: '10px' }}
+                />
+                <Input.Password 
+                    name="password" 
+                    placeholder="Пароль"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    style={{ marginBottom: '10px' }}
+                />
+                <Button 
+                    type="primary" 
+                    htmlType="submit" 
+                    block 
+                    loading={loading}
+                >
+                    Увійти
+                </Button>
+            </form>
+        </Modal>
     );
 };
 
